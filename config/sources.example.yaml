@@ -1,0 +1,106 @@
+# Source registry for the prototype.
+# Prefer APIs, RSS, public ATS feeds and email alerts instead of risky direct scraping.
+
+sources:
+  - name: demo-seed
+    type: sample
+    enabled: true
+    region: demo
+    country: UAE
+    items:
+      - title: Senior Frontend Engineer
+        company: Careem-like Demo Company
+        location: Dubai, UAE
+        url: https://example.com/jobs/senior-frontend-engineer-dubai
+        description: Senior frontend engineer role focused on React, TypeScript, Next.js, design systems and web performance. 6+ years of experience.
+        posted_at: 2026-06-24
+      - title: Frontend Tech Lead
+        company: Fintech Demo Company
+        location: Riyadh, Saudi Arabia
+        url: https://example.com/jobs/frontend-tech-lead-riyadh
+        description: Lead frontend architecture for React and TypeScript applications, mentor engineers and own frontend platform roadmap.
+        posted_at: 2026-06-24
+      - title: Junior Web Developer
+        company: Noise Demo Company
+        location: Dubai, UAE
+        url: https://example.com/jobs/junior-web-developer
+        description: Entry level website updates and HTML/CSS tasks.
+        posted_at: 2026-06-24
+
+  # Optional: public remote RSS feed. Uncomment to test RSS ingestion.
+  # - name: weworkremotely-programming
+  #   type: rss
+  #   enabled: true
+  #   region: remote
+  #   country: Remote
+  #   url: https://weworkremotely.com/categories/remote-programming-jobs.rss
+
+  # Optional: job-search API connector. Requires JSEARCH_API_KEY in .env or GitHub Actions secrets.
+  - name: jsearch-uae
+    type: jsearch
+    enabled: false
+    region: uae
+    country: UAE
+    queries:
+      - Senior Frontend Developer Dubai
+      - Senior Frontend Engineer UAE React TypeScript
+      - Frontend Tech Lead Dubai
+      - Lead Frontend Engineer Abu Dhabi
+
+  - name: jsearch-saudi
+    type: jsearch
+    enabled: false
+    region: saudi
+    country: Saudi Arabia
+    queries:
+      - Senior Frontend Developer Riyadh
+      - Lead Frontend Engineer Saudi Arabia
+      - Frontend Tech Lead Riyadh React
+      - Senior React Developer Jeddah
+
+  - name: jsearch-sea
+    type: jsearch
+    enabled: false
+    region: southeast-asia
+    country: Southeast Asia
+    queries:
+      - Senior Frontend Engineer Singapore React TypeScript
+      - Staff Frontend Engineer Singapore
+      - Lead Frontend Developer Malaysia
+      - Senior Frontend Engineer Vietnam
+      - Lead React Developer Indonesia
+      - Frontend Tech Lead Thailand
+      - Senior Frontend Developer Philippines
+
+  - name: jsearch-cyprus
+    type: jsearch
+    enabled: false
+    region: cyprus
+    country: Cyprus
+    queries:
+      - Senior Frontend Engineer Cyprus
+      - Lead Frontend Developer Cyprus
+      - Frontend Tech Lead Limassol
+      - Senior React Developer Nicosia
+
+  # Optional examples for company career pages. Replace tokens/sites with real companies.
+  # - name: company-greenhouse
+  #   type: greenhouse
+  #   enabled: false
+  #   region: uae
+  #   country: UAE
+  #   board_token: companytoken
+
+  # - name: company-lever
+  #   type: lever
+  #   enabled: false
+  #   region: cyprus
+  #   country: Cyprus
+  #   site: companysite
+
+  # - name: company-ashby
+  #   type: ashby
+  #   enabled: false
+  #   region: southeast-asia
+  #   country: Singapore
+  #   organization: companyorg
