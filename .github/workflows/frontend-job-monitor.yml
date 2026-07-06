@@ -2,6 +2,15 @@ name: Frontend Job Monitor
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/frontend-job-monitor.yml'
+      - 'pyproject.toml'
+      - 'job_monitor/**'
+      - 'config/**'
+      - 'tests/**'
   schedule:
     # 07:15 UTC every day.
     - cron: '15 7 * * *'
